@@ -1,6 +1,7 @@
 # History files
 .Rhistory
 .Rapp.history
+.Rproj.user
 
 # Session Data files
 .RData
