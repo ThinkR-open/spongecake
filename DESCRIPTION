@@ -3,7 +3,7 @@ Type: Package
 Title: tranform a movie into a synthetic picture
 Version: 0.1.0
 Author: vincent guyader
-Maintainer: vincent guyader <vincent@sthinkr.fr>
+Maintainer: vincent guyader <vincent@thinkr.fr>
 Description: tranform a movie into a synthetic picture
 License: MIT
 Encoding: UTF-8
