@@ -13,3 +13,4 @@ Imports:
     ggplot2,
     jpeg
 RoxygenNote: 5.0.1
+SystemRequirements: FFmpeg (http://ffmpeg.org)
