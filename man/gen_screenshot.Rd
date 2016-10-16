@@ -5,7 +5,7 @@
 \alias{gen_screenshot}
 \title{gen_screenshot}
 \usage{
-gen_screenshot(movie, folder = tempfile(), every = 30, stdout = "")
+gen_screenshot(movie, folder = tempfile(), every = 30)
 }
 \arguments{
 \item{movie}{the path of the movie}

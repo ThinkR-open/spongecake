@@ -54,12 +54,12 @@ folder_average_color <- function(folder){
 #' @export
 
 
-gen_screenshot <- function(movie,folder=tempfile(),every=30,stdout=""){
+gen_screenshot <- function(movie,folder=tempfile(),every=30){
   try(dir.create(folder))
 cat(folder,"\n\n\n")
     td <- paste0(options()$ffmpeg," -i ",movie," -vf fps=1/",every,"  ",folder,"/image-%04d.jpeg")
   td
-cat(system.time(system(td,stdout=stdout)))
+cat(system.time(system(td)))
 return(folder)
 }
 
