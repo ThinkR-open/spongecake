@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "\n\nhh<-\"D:/ThinkR/package public/spongecake/ffmpeg-3.1.4-win64-static/bin/ffmpeg.exe -i D:/tuche.avi -vf fps=1/30  C:/Users/Vincent/AppData/Local/Temp/RtmpSI874K/file1180c52b16/image-%04d.jpeg\"\nsystem(hh)\n",
+    "created" : 1476635989122.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3279830741",
+    "id" : "E27FE7B7",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1476636093861,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "chunk_rendered_width" : "650",
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

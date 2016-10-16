@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : ".onAttach <- function(libname, pkgname) {\n    # Runs when attached to search() path such as by library() or require()\n    if (interactive()) {\n        pdesc <- packageDescription(pkgname)\n        packageStartupMessage('')\n        packageStartupMessage(pdesc$Package, \" \", pdesc$Version, \" by Vincent Guyader\")\n        packageStartupMessage('->  For help type ?spongecake')\n        packageStartupMessage('')\n    }\n  oopts = if (.Platform$OS.type == \"windows\" & .Platform$r_arch == \"x64\") {\n\n    # options(ffmpeg = \"D:/ThinkR/spongecake/inst/ffmpeg-3.1.4-win64-static/bin/ffmpeg.exe\")\n    options(ffmpeg = file.path( find.package(\"spongecake\"), \"ffmpeg-3.1.4-win64-static/bin/ffmpeg.exe\" ))\n\n\n\n      } else{    options(ffmpeg = \"ffmpeg\")}\n\n}\n\n# enleve les faux positifs du check\n# globalVariables(c(\"code\", \"type_code\", \"effect\", \".\",\n#                   \"caract\", \"caract_1\", \"caract_2\",\n#                   \"nom\", \"ID_caract\", \"ID\",\n#                   \"Code.LPP\",\n#                   \"Libelle\",\n#                   \"nb\",\n#                   \"UCD.7\",\n#                   \"Libelle\",\n#                   \"nb\",\n#                   \"effect\",\n#                   \"Y\",\n#                   \"xml_code\"\n#                   ))\n",
+    "created" : 1476634003600.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "834354032",
+    "id" : "3E8F8A6F",
+    "lastKnownWriteTime" : 1476634810,
+    "last_content_update" : 1476634808190,
+    "path" : "D:/ThinkR/package public/spongecake/R/onAttach.R",
+    "project_path" : "R/onAttach.R",
+    "properties" : {
+        "chunk_rendered_width" : "650"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
