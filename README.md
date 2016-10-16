@@ -5,7 +5,7 @@
 
 
 ```R
-install.packages("devtools")
+if (!require(devtools)){install.packages("devtools")}
 devtools::install_github("ThinkRstat/spongecake")
 library(spongecake)
 library(magrittr)
