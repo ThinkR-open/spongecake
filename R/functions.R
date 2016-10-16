@@ -42,7 +42,7 @@ folder_average_color <- function(folder){
 # -*- coding: utf-8 -*-
 #' @encoding UTF-8
 #' @title gen_screenshot
-#' @description transform a movie into lot of screenshot
+#' @description transform a movie into lot of screenshots
 #' @param movie the path of the movie
 #' @param folder the path of the folder
 #' @param every timbe between each screenshot in seconds
@@ -54,7 +54,7 @@ folder_average_color <- function(folder){
 #' @export
 
 
-gen_screenshot <- function(movie,folder=tempfile(),every=30){
+gen_screenshot <- function(movie,folder=tempfile(),every=10){
   try(dir.create(folder))
 cat(folder,"\n\n\n")
     td <- paste0(options()$ffmpeg," -i ",movie," -vf fps=1/",every,"  ",folder,"/image-%04d.jpeg")
