@@ -1,7 +1,7 @@
 Package: spongecake
 Type: Package
 Title: tranform a movie into a synthetic picture
-Version: 0.1.0
+Version: 0.1.1
 Author: vincent guyader
 Maintainer: vincent guyader <vincent@thinkr.fr>
 Description: tranform a movie into a synthetic picture
