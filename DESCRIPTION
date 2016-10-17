@@ -11,6 +11,7 @@ LazyData: true
 Imports:
     magrittr,
     ggplot2,
-    jpeg
+    jpeg,
+    plyr
 RoxygenNote: 5.0.1
 SystemRequirements: FFmpeg (http://ffmpeg.org)

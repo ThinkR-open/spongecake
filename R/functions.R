@@ -26,17 +26,20 @@ average_color <- function(img) {
 #' @param folder the path of the folder
 #' @importFrom jpeg readJPEG
 #' @importFrom magrittr %>%
+#' @importFrom plyr llply
 #' @export
 
 
 folder_average_color <- function(folder){
-
   list.files(folder,pattern = "*.jpeg$",full.names = TRUE) %>%
-    # magrittr::extract(1:3) %>%
-    lapply(.,FUN=readJPEG) %>%
-    lapply(.,FUN=average_color) %>%
-    lapply(.,FUN=function(x){x$html}) %>%
-    unlist()
+    llply(.,.fun=function(x){
+      res <- NA;
+      try(res <- average_color(readJPEG(x))$html)
+      res
+    },.progress = "text")  %>%
+    unlist() %>%
+    na.omit() %>%
+    as.vector()
 }
 
 # -*- coding: utf-8 -*-
@@ -55,10 +58,10 @@ folder_average_color <- function(folder){
 
 
 gen_screenshot <- function(movie,folder=tempfile(),every=10){
-  try(dir.create(folder))
+try(dir.create(folder))
 cat(folder,"\n\n\n")
-    td <- paste0(options()$ffmpeg," -i ",movie," -vf fps=1/",every,"  ",folder,"/image-%04d.jpeg")
-  td
+td <- paste0(options()$ffmpeg," -i ",movie," -vf fps=1/",every,"  ",folder,"/image-%04d.jpeg")
+td
 cat(system.time(system(td)))
 return(folder)
 }

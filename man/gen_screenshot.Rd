@@ -5,7 +5,7 @@
 \alias{gen_screenshot}
 \title{gen_screenshot}
 \usage{
-gen_screenshot(movie, folder = tempfile(), every = 30)
+gen_screenshot(movie, folder = tempfile(), every = 10)
 }
 \arguments{
 \item{movie}{the path of the movie}
@@ -15,7 +15,7 @@ gen_screenshot(movie, folder = tempfile(), every = 30)
 \item{every}{timbe between each screenshot in seconds}
 }
 \description{
-transform a movie into lot of screenshot
+transform a movie into lot of screenshots
 }
 \examples{
 \dontrun{
