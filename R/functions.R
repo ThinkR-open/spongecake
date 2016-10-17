@@ -58,16 +58,24 @@ folder_average_color <- function(folder){
 
 
 gen_screenshot <- function(movie,folder=tempfile(),every=10){
+ffmpeg <- options()$ffmpeg
+  version = try(system(paste(ffmpeg, '-version'), intern = TRUE))
+  if (inherits(version, 'try-error')) {
+    warning('The command "', ffmpeg, '" is not available in your system. Please install FFmpeg first: ',
+            ifelse(.Platform$OS.type == 'windows', 'http://ffmpeg.arrozcru.org/autobuilds/',
+                   'http://ffmpeg.org/download.html'))
+    return()
+  }
+
+
 try(dir.create(folder))
 cat(folder,"\n\n\n")
-# movie <- gsub( " ", "\\\\ ", movie )
-td <- paste0(options()$ffmpeg," -i ",movie," -vf fps=1/",every,"  ",folder,"/image-%04d.jpeg")
+td <- paste0(shQuote(options()$ffmpeg)," -i ",shQuote(file.path(movie))," -vf fps=1/",every,"  ",folder,"/image-%04d.jpeg")
 td
 cat(system.time(system(td)))
 return(folder)
 }
 
-# paste("avant",gsub( " ", "\\\\ ", movie ),"apres")
 
 
 
