@@ -10,12 +10,9 @@
     }
 
 
-if ( (p <-Sys.which('ffmpeg'))!=""){
-  options(ffmpeg =p)}
-
-    ffmpeg <- options()$ffmpeg
-
-  if (ffmpeg==""){ffmpeg<-"ffmpeg"}
+if ( (p <-Sys.which('ffmpeg'))!=""){options(ffmpeg =p)}
+  ffmpeg <- options()$ffmpeg
+  if (length(ffmpeg) || ffmpeg==""){ffmpeg<-"ffmpeg"}
 
   version = try(system(paste(ffmpeg, '-version'), intern = TRUE),silent=TRUE)
   if (inherits(version, 'try-error')) {
