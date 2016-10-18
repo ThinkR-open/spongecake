@@ -59,7 +59,7 @@ folder_average_color <- function(folder){
 
 gen_screenshot <- function(movie,folder=tempfile(),every=10){
 ffmpeg <- options()$ffmpeg
-  version = try(system(paste(ffmpeg, '-version'), intern = TRUE))
+  version = try(system(paste(ffmpeg, '-version'), intern = TRUE),silent=TRUE)
   if (inherits(version, 'try-error')) {
     warning('The command "', ffmpeg, '" is not available in your system. Please install FFmpeg first: ',
             ifelse(.Platform$OS.type == 'windows', 'http://ffmpeg.arrozcru.org/autobuilds/',

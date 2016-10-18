@@ -10,21 +10,24 @@
     }
 
 
+if ( (p <-Sys.which('ffmpeg'))!=""){
+  options(ffmpeg =p)}
 
+    ffmpeg <- options()$ffmpeg
 
-  options(ffmpeg = Sys.which('ffmpeg'))
-  ffmpeg <- options()$ffmpeg
-  version = try(system(paste(ffmpeg, '-version'), intern = TRUE))
+  if (ffmpeg==""){ffmpeg<-"ffmpeg"}
+
+  version = try(system(paste(ffmpeg, '-version'), intern = TRUE),silent=TRUE)
   if (inherits(version, 'try-error')) {
-    packageStartupMessage('The command "', ffmpeg, '" is not available in your system. Please install FFmpeg first: ',
+    packageStartupMessage('The command "', ffmpeg,'" is not available in your system. Please install FFmpeg first\n more information at : \n',
             ifelse(.Platform$OS.type == 'windows', 'http://ffmpeg.arrozcru.org/autobuilds/',
                    'http://ffmpeg.org/download.html'))
-
+    packageStartupMessage('if you already have installed ffmpeg use this instruction to manualy edit the path to ffmpeg :')
     packageStartupMessage(ifelse(.Platform$OS.type == 'windows', ' options(ffmpeg = "C:/path/to/bin/ffmpeg.exe")',
                                  'options(ffmpeg = "path/to/ffmpeg")'))
   }else{
 
-    packageStartupMessage('ffmpeg found at ',ffmpeg,' you can edit it with :')
+    packageStartupMessage('ffmpeg found at ',ffmpeg,' but you can edit it with :')
     packageStartupMessage(ifelse(.Platform$OS.type == 'windows', ' options(ffmpeg = "C:/path/to/bin/ffmpeg.exe")',
                                  'options(ffmpeg = "path/to/ffmpeg")'))
   }
