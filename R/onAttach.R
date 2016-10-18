@@ -5,7 +5,7 @@
         packageStartupMessage('')
         packageStartupMessage(pdesc$Package, " ", pdesc$Version, " by Vincent Guyader")
         packageStartupMessage('->  For help type ?spongecake')
-        packageStartupMessage('make sure to have ffmpeg on your computer (http://ffmpeg.org)')
+
         packageStartupMessage('')
     }
 
@@ -13,4 +13,23 @@
 
 
   options(ffmpeg = Sys.which('ffmpeg'))
+  ffmpeg <- options()$ffmpeg
+  version = try(system(paste(ffmpeg, '-version'), intern = TRUE))
+  if (inherits(version, 'try-error')) {
+    packageStartupMessage('The command "', ffmpeg, '" is not available in your system. Please install FFmpeg first: ',
+            ifelse(.Platform$OS.type == 'windows', 'http://ffmpeg.arrozcru.org/autobuilds/',
+                   'http://ffmpeg.org/download.html'))
+
+    packageStartupMessage(ifelse(.Platform$OS.type == 'windows', ' options(ffmpeg = "C:/path/to/bin/ffmpeg.exe")',
+                                 'options(ffmpeg = "path/to/ffmpeg")'))
+  }else{
+
+    packageStartupMessage('ffmpeg found at ',ffmpeg,' you can edit it with :')
+    packageStartupMessage(ifelse(.Platform$OS.type == 'windows', ' options(ffmpeg = "C:/path/to/bin/ffmpeg.exe")',
+                                 'options(ffmpeg = "path/to/ffmpeg")'))
+  }
+
+
+
+
 }
