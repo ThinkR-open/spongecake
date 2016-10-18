@@ -60,7 +60,7 @@ folder_average_color <- function(folder){
 gen_screenshot <- function(movie,folder=tempfile(),every=10){
 
   if(!file.exists(movie)){
-    warning('The movie "', movie, '" dont seems to exists, can you check the path and retry ?')
+    stop('The movie "', movie, '" dont seems to exists, can you check the path and retry ?')
     return()
 
   }
@@ -68,7 +68,7 @@ gen_screenshot <- function(movie,folder=tempfile(),every=10){
 ffmpeg <- options()$ffmpeg
   version = try(system(paste(ffmpeg, '-version'), intern = TRUE),silent=TRUE)
   if (inherits(version, 'try-error')) {
-    warning('The command "', ffmpeg, '" is not available in your system. Please install FFmpeg first: ',
+    stop('The command "', ffmpeg, '" is not available in your system. Please install FFmpeg first: ',
             ifelse(.Platform$OS.type == 'windows', 'https://ffmpeg.zeranoe.com/builds/',
                    'http://ffmpeg.org/download.html'))
     return()
