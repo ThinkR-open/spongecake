@@ -17,7 +17,7 @@ if ( (p <-Sys.which('ffmpeg'))!=""){options(ffmpeg =p)}
   version = try(system(paste(ffmpeg, '-version'), intern = TRUE),silent=TRUE)
   if (inherits(version, 'try-error')) {
     packageStartupMessage('The command "', ffmpeg,'" is not available in your system. Please install FFmpeg first\n more information at : \n',
-            ifelse(.Platform$OS.type == 'windows', 'http://ffmpeg.arrozcru.org/autobuilds/',
+            ifelse(.Platform$OS.type == 'windows', 'https://ffmpeg.zeranoe.com/builds/',
                    'http://ffmpeg.org/download.html'))
     packageStartupMessage('if you already have installed ffmpeg use this instruction to manualy edit the path to ffmpeg :')
     packageStartupMessage(ifelse(.Platform$OS.type == 'windows', ' options(ffmpeg = "C:/path/to/bin/ffmpeg.exe")',

@@ -62,7 +62,7 @@ ffmpeg <- options()$ffmpeg
   version = try(system(paste(ffmpeg, '-version'), intern = TRUE),silent=TRUE)
   if (inherits(version, 'try-error')) {
     warning('The command "', ffmpeg, '" is not available in your system. Please install FFmpeg first: ',
-            ifelse(.Platform$OS.type == 'windows', 'http://ffmpeg.arrozcru.org/autobuilds/',
+            ifelse(.Platform$OS.type == 'windows', 'https://ffmpeg.zeranoe.com/builds/',
                    'http://ffmpeg.org/download.html'))
     return()
   }
