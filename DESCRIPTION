@@ -1,11 +1,12 @@
 Package: spongecake
 Type: Package
-Title: tranform a movie into a synthetic picture
+Title: Tranform a Movie into a Synthetic Picture
 Version: 0.1.1
 Author: vincent guyader
 Maintainer: vincent guyader <vincent@thinkr.fr>
-Description: tranform a movie into a synthetic picture
-License: MIT
+Description: Tranform a Movie into a Synthetic Picture - The colors of motion
+License: GPL-3
+Depends: R (>= 3.0)
 Encoding: UTF-8
 LazyData: true
 Imports:
@@ -15,3 +16,5 @@ Imports:
     plyr
 RoxygenNote: 5.0.1
 SystemRequirements: FFmpeg (http://ffmpeg.org)
+URL: https://github.com/ThinkRstat/spongecake
+
