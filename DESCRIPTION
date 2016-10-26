@@ -4,8 +4,8 @@ Title: Tranform a Movie into a Synthetic Picture
 Version: 0.1.1
 Author: vincent guyader
 Maintainer: vincent guyader <vincent@thinkr.fr>
-Description: Tranform a Movie into a Synthetic Picture - The colors of motion
-License: GPL-3
+Description: Tranform a Movie into a Synthetic Picture. A frame every 10 seconds is summarized into one colour, then every generated colors are stacked together.
+License: GPL-3 + file LICENSE
 Depends: R (>= 3.0)
 Encoding: UTF-8
 LazyData: true
@@ -17,4 +17,5 @@ Imports:
 RoxygenNote: 5.0.1
 SystemRequirements: FFmpeg (http://ffmpeg.org)
 URL: https://github.com/ThinkRstat/spongecake
+NeedsCompilation: no
 

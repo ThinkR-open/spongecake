@@ -1,3 +1,5 @@
+#' @title .onAttach
+#' @importFrom utils packageDescription
 .onAttach <- function(libname, pkgname) {
     # Runs when attached to search() path such as by library() or require()
     if (interactive()) {
@@ -33,3 +35,6 @@ if ( (p <-Sys.which('ffmpeg'))!=""){options(ffmpeg =p)}
 
 
 }
+
+
+globalVariables(".")

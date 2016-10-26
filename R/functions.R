@@ -27,6 +27,7 @@ average_color <- function(img) {
 #' @importFrom jpeg readJPEG
 #' @importFrom magrittr %>%
 #' @importFrom plyr llply
+#' @importFrom stats na.omit
 #' @export
 
 
@@ -91,7 +92,7 @@ return(folder)
 #' @title draw
 #' @description transform a folder of scrennshot into a synthetical picture
 #' @param folder the path of the folder
-#' @importFrom ggplot2 ggplot aes geom_bar coord_flip theme_void
+#' @importFrom ggplot2 ggplot aes_string geom_bar coord_flip theme_void
 #' @examples
 #' \dontrun{
 #' #options(ffmpeg = "C:/ffmpeg-3.1.4-win64-static/bin/ffmpeg.exe") # windows user
@@ -106,7 +107,7 @@ return(folder)
 draw <- function(folder){
   jj <- folder_average_color(folder)
   data.frame(trt = jj, outcome = rep(1,length(jj))) %>%
-    ggplot(., aes(trt, outcome)) +
+    ggplot(., aes_string("trt", "outcome")) +
     geom_bar(stat = "identity", position = "fill",fill=jj,width=1)+
     coord_flip()+ theme_void()
 }
