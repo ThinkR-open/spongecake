@@ -66,10 +66,9 @@ gen_screenshot <- function(movie,folder=tempfile(),every=10){
 
   }
 
-ffmpeg <- options()$ffmpeg
-  version = try(system(paste(ffmpeg, '-version'), intern = TRUE),silent=TRUE)
+  version <- try(system(paste(options()$ffmpeg, '-version'), intern = TRUE),silent=TRUE)
   if (inherits(version, 'try-error')) {
-    stop('The command "', ffmpeg, '" is not available in your system. Please install FFmpeg first: ',
+    stop('The command "', options()$ffmpeg, '" is not available in your system. Please install FFmpeg first: ',
             ifelse(.Platform$OS.type == 'windows', 'https://ffmpeg.zeranoe.com/builds/',
                    'http://ffmpeg.org/download.html'))
     return()
