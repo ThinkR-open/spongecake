@@ -12,14 +12,19 @@
     }
 
 
-if ( (p <-Sys.which('ffmpeg'))!=""){options(ffmpeg =p)}
-
-  if (length(getOption('ffmpeg'))==0 || getOption('ffmpeg')==""){ffmpeg<-"ffmpeg"}
+  if ( (p <-Sys.which('ffmpeg'))!=""){options(ffmpeg = p)}
+  version <- NULL
+  if (length(getOption('ffmpeg'))==0 || getOption('ffmpeg')=="")
+  {ffmpeg<-"ffmpeg"}else{
+    version = try(system(paste(getOption('ffmpeg'), '-version'),
+                         intern = TRUE),silent=TRUE)
+  }
 
   # ICI ON MET VERSION A NULL
 
-  version = try(system(paste(getOption('ffmpeg'), '-version'), intern = TRUE),silent=TRUE)
-  if (inherits(version, 'try-error')) {
+
+  # if (inherits(version, 'try-error')) {
+  if (is.null(version)) {
     packageStartupMessage('The command "', getOption('ffmpeg'),'" is not available in your system. Please install FFmpeg first\n more information at : \n',
             ifelse(.Platform$OS.type == 'windows', 'https://ffmpeg.zeranoe.com/builds/',
                    'http://ffmpeg.org/download.html'))
