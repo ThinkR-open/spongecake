@@ -1,10 +1,10 @@
 Package: spongecake
 Type: Package
-Title: Tranform a Movie into a Synthetic Picture
+Title: Transform a Movie into a Synthetic Picture
 Version: 0.1.1
-Author: vincent guyader
+Author: Vincent Guyader
 Maintainer: vincent guyader <vincent@thinkr.fr>
-Description: Tranform a Movie into a Synthetic Picture. A frame every 10 seconds is summarized into one colour, then every generated colors are stacked together.
+Description: Transform a Movie into a Synthetic Picture. A frame every 10 seconds is summarized into one colour, then every generated colors are stacked together.
 License: GPL-3
 Depends: R (>= 3.0)
 Encoding: UTF-8

@@ -13,12 +13,12 @@
 
 
 if ( (p <-Sys.which('ffmpeg'))!=""){options(ffmpeg =p)}
-  ffmpeg <- options()$ffmpeg
-  if (length(ffmpeg)==0 || ffmpeg==""){ffmpeg<-"ffmpeg"}
 
-  version = try(system(paste(ffmpeg, '-version'), intern = TRUE),silent=TRUE)
+  if (length(getOption('ffmpeg'))==0 || getOption('ffmpeg')==""){ffmpeg<-"ffmpeg"}
+
+  version = try(system(paste(getOption('ffmpeg'), '-version'), intern = TRUE),silent=TRUE)
   if (inherits(version, 'try-error')) {
-    packageStartupMessage('The command "', ffmpeg,'" is not available in your system. Please install FFmpeg first\n more information at : \n',
+    packageStartupMessage('The command "', getOption('ffmpeg'),'" is not available in your system. Please install FFmpeg first\n more information at : \n',
             ifelse(.Platform$OS.type == 'windows', 'https://ffmpeg.zeranoe.com/builds/',
                    'http://ffmpeg.org/download.html'))
     packageStartupMessage('if you already have installed ffmpeg use this instruction to manualy edit the path to ffmpeg :')
@@ -26,7 +26,7 @@ if ( (p <-Sys.which('ffmpeg'))!=""){options(ffmpeg =p)}
                                  'options(ffmpeg = "path/to/ffmpeg")'))
   }else{
 
-    packageStartupMessage('ffmpeg found at ',ffmpeg,' but you can edit it with :')
+    packageStartupMessage('ffmpeg found at ',getOption('ffmpeg'),' but you can edit it with :')
     packageStartupMessage(ifelse(.Platform$OS.type == 'windows', ' options(ffmpeg = "C:/path/to/bin/ffmpeg.exe")',
                                  'options(ffmpeg = "path/to/ffmpeg")'))
   }
