@@ -69,18 +69,18 @@ gen_screenshot <- function(movie,folder=tempfile(),every=10){
   version <- try(system(paste(getOption('ffmpeg'), '-version'), intern = TRUE),silent=TRUE)
   if (inherits(version, 'try-error')) {
     stop('The command "', getOption('ffmpeg'), '" is not available in your system. Please install FFmpeg first: ',
-            ifelse(.Platform$OS.type == 'windows', 'https://ffmpeg.zeranoe.com/builds/',
-                   'http://ffmpeg.org/download.html'))
+         ifelse(.Platform$OS.type == 'windows', 'https://ffmpeg.zeranoe.com/builds/',
+                'http://ffmpeg.org/download.html'))
     return()
   }
 
 
-try(dir.create(folder))
-cat(folder,"\n\n\n")
-td <- paste0(shQuote(getOption('ffmpeg'))," -i ",shQuote(file.path(movie))," -vf fps=1/",every,"  ",folder,"/image-%04d.jpeg")
-td
-cat(system.time(system(td)))
-return(folder)
+  try(dir.create(folder))
+  cat(folder,"\n\n\n")
+  td <- paste0(shQuote(getOption('ffmpeg'))," -i ",shQuote(file.path(movie))," -vf fps=1/",every,"  ",folder,"/image-%04d.jpeg")
+  td
+  cat(system.time(system(td)))
+  return(folder)
 }
 
 
