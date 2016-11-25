@@ -16,6 +16,8 @@ if ( (p <-Sys.which('ffmpeg'))!=""){options(ffmpeg =p)}
 
   if (length(getOption('ffmpeg'))==0 || getOption('ffmpeg')==""){ffmpeg<-"ffmpeg"}
 
+  # ICI ON MET VERSION A NULL
+
   version = try(system(paste(getOption('ffmpeg'), '-version'), intern = TRUE),silent=TRUE)
   if (inherits(version, 'try-error')) {
     packageStartupMessage('The command "', getOption('ffmpeg'),'" is not available in your system. Please install FFmpeg first\n more information at : \n',
