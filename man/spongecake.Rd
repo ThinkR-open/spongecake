@@ -16,4 +16,3 @@ gen_screenshot(movie = "D:/mymovie.avi") \%>\%
 draw()
 }
 }
-

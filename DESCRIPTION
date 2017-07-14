@@ -14,8 +14,7 @@ Imports:
     ggplot2,
     jpeg,
     plyr
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 SystemRequirements: FFmpeg (http://ffmpeg.org)
 URL: https://github.com/ThinkRstat/spongecake
 NeedsCompilation: no
-

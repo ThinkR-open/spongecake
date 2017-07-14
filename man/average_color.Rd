@@ -13,4 +13,3 @@ average_color(img)
 \description{
 return the average color from an image
 }
-

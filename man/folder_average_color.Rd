@@ -13,4 +13,3 @@ folder_average_color(folder)
 \description{
 return the average color from all folder's images
 }
-

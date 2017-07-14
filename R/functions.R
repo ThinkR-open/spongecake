@@ -4,7 +4,6 @@
 #' @description return the average color from an image
 #' @param img the image (a array)
 #' @importFrom grDevices rgb
-#' @export
 
 
 average_color <- function(img) {
@@ -28,7 +27,6 @@ average_color <- function(img) {
 #' @importFrom magrittr %>%
 #' @importFrom plyr llply
 #' @importFrom stats na.omit
-#' @export
 
 
 folder_average_color <- function(folder){
@@ -66,12 +64,20 @@ gen_screenshot <- function(movie,folder=tempfile(),every=10){
 
   }
 
-  version <- try(system(paste(getOption('ffmpeg'), '-version'), intern = TRUE),silent=TRUE)
-  if (inherits(version, 'try-error')) {
-    stop('The command "', getOption('ffmpeg'), '" is not available in your system. Please install FFmpeg first: ',
-         ifelse(.Platform$OS.type == 'windows', 'https://ffmpeg.zeranoe.com/builds/',
-                'http://ffmpeg.org/download.html'))
-    return()
+
+  if (getOption('ffmpeg')=="") {
+    message('The command "',
+            ifelse(
+              is.null(getOption('ffmpeg')) || getOption('ffmpeg')=="" ,
+              "ffmpeg",
+              getOption('ffmpeg')
+            )
+                          ,'" is not available in your system. Please install FFmpeg first\n more information at : \n',
+                          ifelse(.Platform$OS.type == 'windows', 'https://ffmpeg.zeranoe.com/builds/',
+                                 'http://ffmpeg.org/download.html'))
+    message('if you already have installed ffmpeg use this instruction to manualy edit the path to ffmpeg :')
+    message(ifelse(.Platform$OS.type == 'windows', ' options(ffmpeg = "C:/path/to/bin/ffmpeg.exe")',
+                                 'options(ffmpeg = "path/to/ffmpeg")'))
   }
 
 
@@ -92,6 +98,7 @@ gen_screenshot <- function(movie,folder=tempfile(),every=10){
 #' @description transform a folder of scrennshot into a synthetical picture
 #' @param folder the path of the folder
 #' @importFrom ggplot2 ggplot aes_string geom_bar coord_flip theme_void
+#' @export
 #' @examples
 #' \dontrun{
 #' #options(ffmpeg = "C:/ffmpeg-3.1.4-win64-static/bin/ffmpeg.exe") # windows user
@@ -99,7 +106,6 @@ gen_screenshot <- function(movie,folder=tempfile(),every=10){
 #' gen_screenshot(movie = "D:/mymovie.avi") %>%
 #' draw()
 #' }
-#' @export
 
 
 

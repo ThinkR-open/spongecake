@@ -23,4 +23,3 @@ gen_screenshot(movie = "D:/mymovie.avi") \%>\%
 browseURL()
 }
 }
-
