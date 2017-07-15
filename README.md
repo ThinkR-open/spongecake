@@ -1,4 +1,15 @@
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/spongecake)](https://cran.r-project.org/package=spongecake)
+[![](http://cranlogs.r-pkg.org/badges/spongecake)](https://cran.r-project.org/package=spongecake)
+
+
 # spongecake
+
+Transform a Movie into a Synthetic Picture. A frame every 10 seconds is summarized into one colour, then every generated colors are stacked together. 
+
+why doing this ?... why not ?! :-)
+
+
+![](motion.png)
 
 
 ## Installation
