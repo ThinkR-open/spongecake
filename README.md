@@ -22,7 +22,7 @@ install.packages("spongecake")
 
 # from Github
 if (!require(devtools)){install.packages("devtools")}
-devtools::install_github("ThinkRstat/spongecake")
+devtools::install_github("ThinkR-open/spongecake")
 ```
 
 
